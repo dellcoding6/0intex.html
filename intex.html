@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App</title>
+    <style>
+        /* Some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Todo List</h2>
+        <input type="text" id="todoInput" placeholder="Enter your task">
+        <button onclick="addTodo()">Add</button>
+        <ul id="todoList">
+            <!-- Todo items will be dynamically added here -->
+        </ul>
+    </div>
+
+    <script>
+        // Function to add a new todo item
+        function addTodo() {
+            // Get the input value
+            const todoInput = document.getElementById("todoInput");
+            const todoText = todoInput.value.trim();
+
+            // If input is not empty, create a new todo item
+            if (todoText !== "") {
+                // Create a new list item
+                const li = document.createElement("li");
+                li.textContent = todoText;
+
+                // Add the list item to the todo list
+                document.getElementById("todoList").appendChild(li);
+
+                // Clear the input field
+                todoInput.value = "";
+            } else {
+                // If input is empty, alert the user
+                alert("Please enter a task!");
+            }
+        }
+    </script>
+</body>
+</html>
